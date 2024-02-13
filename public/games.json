@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "img": "https://example.com/game1.jpg",
+    "img": "https://i.ibb.co/7Q5PydD/space.jpg",
     "name": "Space Odyssey",
     "ratings": 4.2,
     "price": 24.99,
@@ -9,7 +9,7 @@
   },
   {
     "id": "2",
-    "img": "https://example.com/game2.jpg",
+    "img": "https://i.ibb.co/jv2SQ7c/Mystical-Quest.png",
     "name": "Mystical Quest",
     "ratings": 4.5,
     "price": 29.99,
@@ -17,7 +17,7 @@
   },
   {
     "id": "3",
-    "img": "https://example.com/game3.jpg",
+    "img": "https://i.ibb.co/NSgJ5sG/Cybernetic-Revolution.png",
     "name": "Cybernetic Revolution",
     "ratings": 3.8,
     "price": 39.99,
@@ -25,7 +25,7 @@
   },
   {
     "id": "4",
-    "img": "https://example.com/game4.jpg",
+    "img": "https://i.ibb.co/rbCPWJD/Epic-Fantasy-Chronicles.png",
     "name": "Epic Fantasy Chronicles",
     "ratings": 4.0,
     "price": 19.99,
@@ -33,7 +33,7 @@
   },
   {
     "id": "5",
-    "img": "https://example.com/game5.jpg",
+    "img": "https://i.ibb.co/Qkgy1JN/Stealth-Ops-Shadow-Infiltration.jpg",
     "name": "Stealth Ops: Shadow Infiltration",
     "ratings": 4.7,
     "price": 49.99,
@@ -41,7 +41,7 @@
   },
   {
     "id": "6",
-    "img": "https://example.com/game6.jpg",
+    "img": "https://i.ibb.co/dg7N0tQ/Survival-Quest-Lost-Island.png",
     "name": "Survival Quest: Lost Island",
     "ratings": 3.5,
     "price": 29.99,
