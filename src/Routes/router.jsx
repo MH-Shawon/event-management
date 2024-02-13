@@ -4,6 +4,7 @@ import Home from "../Components/Home/Home";
 import Features from "../Components/Features";
 import Elements from "../Components/Elements";
 import Social from "../Components/Social";
+import Games from "../Components/Games/Games";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
       },
         {
             path: "/games",
-            element: <Home />
+            element: <Games />,
         },
         {
             path: "/features",
