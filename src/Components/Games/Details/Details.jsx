@@ -1,10 +1,12 @@
+import { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
 
 const Details = () => {
-    // const {id} = useLoaderData();
     const {id} = useParams()
-    console.log(id)
+const loaded = useLoaderData();
+console.log(loaded)
+
 
     return (
         <div>

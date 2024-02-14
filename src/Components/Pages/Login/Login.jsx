@@ -1,46 +1,45 @@
 import { useContext } from "react";
 
 import { AuthContext } from "../../Providers/AuthProviders";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  
   const { login } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogin = (e) => {
-    
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    
+
     console.log(email, password);
 
     login(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.error(error);
-        toast.error("Incorrect Email or password")
+        toast.error("Incorrect Email or password");
       });
-      
   };
 
-  const handleGoogleLogin=()=>{
+  const handleGoogleLogin = () => {
     signInWithPopup(auth, provider)
-    .then(res=>{
-      const user= res.user;
-      console.log(user)
-    })
-    .catch(err=>{
-      console.log(err.message)
-    })
-  }
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <div>
       <div>
@@ -77,12 +76,17 @@ const Login = () => {
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
-            <button onClick={handleGoogleLogin}
+            <button
+              onClick={handleGoogleLogin}
               className="text-center align-middle select-none font-sans font-bold mt-2 uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5  rounded-lg border border-blue-gray-500 text-blue-gray-500 hover:opacity-75 focus:ring focus:ring-blue-gray-200 active:opacity-[0.85] flex items-center justify-center gap-3"
-              >
-              <img src="https://docs.material-tailwind.com/icons/google.svg" alt="metamask" className="w-6 h-6" />
-              Continue with
-              Google</button>
+            >
+              <img
+                src="https://docs.material-tailwind.com/icons/google.svg"
+                alt="metamask"
+                className="w-6 h-6"
+              />
+              Continue with Google
+            </button>
           </div>
         </form>
         <p className="text-center mt-4 mb-4">

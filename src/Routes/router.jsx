@@ -9,11 +9,13 @@ import Login from "../Components/Pages/Login/Login";
 import Register from "../Components/Pages/Register/Register";
 import Details from "../Components/Games/Details/Details";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Components/Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -44,10 +46,14 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path:'/details/:id',
-        element: <PrivateRoute><Details></Details></PrivateRoute>,
-        // loader:({params})=>fetch(`/games.json/${params.id}`)
-      }
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/games.json"),
+      },
     ],
   },
 ]);
