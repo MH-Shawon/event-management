@@ -1,14 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./Providers/AuthProviders";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut()
+      .then()
+      .catch()
+  }
   const navlinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-          <li>
-              <NavLink to="/games">Games</NavLink>
-          </li>
+      <li>
+        <NavLink to="/games">Games</NavLink>
+      </li>
       <li>
         <NavLink to="features">Features</NavLink>
       </li>
@@ -42,6 +50,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
+
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navlinks}
@@ -52,9 +61,29 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal mr-2 px-1">{navlinks}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div>
+        {
+          user ? <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+              </div>
+            </div>
+            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+              <li>
+                <a >
+                  {user.displayName}
+                  
+                </a>
+              </li>
+              <li><a onClick={handleSignOut}>Logout</a></li>
+            </ul>
+          </div> : <div className="navbar-end">
+            <Link to='/login' className="btn btn-outline">Login</Link>
+          </div>
+        }
       </div>
+
     </div>
   );
 };
