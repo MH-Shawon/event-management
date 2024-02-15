@@ -2,7 +2,7 @@
 
 
 
-Welcome to GameCon - Where Gaming Comes to Life! Visit the live site [here](https://www.gamecon.com).
+Welcome to GameCon - Where Gaming Comes to Life! Visit the live site [here](https://event-manegement-b6535.web.app/).
 
 ## Features and Functionalities
 

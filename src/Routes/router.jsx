@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
         ),
-        loader: () => fetch("/games.json"),
+        loader: () => fetch(`/games.json`),
       },
     ],
   },
